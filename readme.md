@@ -1,1 +1,1 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/tw6quuc0h5hwk56o?svg=true)](https://ci.appveyor.com/project/rubinov2016/aqa-1-2-gradle-api-ci-task3-postman-echo)
+[![Build status](https://ci.appveyor.com/api/projects/status/e228yarna7j1a6jp?svg=true)](https://ci.appveyor.com/project/rubinov2016/aqa2-1-web)
