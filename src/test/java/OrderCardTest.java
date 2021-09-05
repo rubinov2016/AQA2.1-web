@@ -34,7 +34,7 @@ public class OrderCardTest {
     void tearDown() {
         driver.quit();
         driver = null;
-    }git push --all origin
+    }
     @Test
     void shouldTestSomething() {
         driver.get("http://localhost:9999");
