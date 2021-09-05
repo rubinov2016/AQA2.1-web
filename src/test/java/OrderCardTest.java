@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,11 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrderCardTest {
     private WebDriver driver;
+
     @BeforeAll
     static void setUpAll() {
-// убедитесь, что файл chromedriver.exe расположен именно в каталоге C:\tmp
-//        System.setProperty("webdriver.chrome.driver", "c:\\tmp2\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
+        WebDriverManager.chromedriver().setup();
+        //System.setProperty("webdriver.chrome.driver", "driver/linux/chromedriver");
     }
     @BeforeEach
     void setUp() {
@@ -33,7 +34,7 @@ public class OrderCardTest {
     void tearDown() {
         driver.quit();
         driver = null;
-    }
+    }git push --all origin
     @Test
     void shouldTestSomething() {
         driver.get("http://localhost:9999");
@@ -42,7 +43,10 @@ public class OrderCardTest {
         elements.get(1).sendKeys("+79345678901");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
-        String text = driver.findElement(By.className("Success_successBlock__2L3Cw")).getText();
+  //      String text = driver.findElement(By.XPATH([@data-qa-id="order-success"])).getText();
+  //      String text = driver.findElement(By.id("order-success")).getText();
+        //String text = driver.findElement(By.className("Success_successBlock__2L3Cw")).getText();
+        String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
     }
 }
